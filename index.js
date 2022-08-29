@@ -7,6 +7,7 @@ import { userRouter } from "./routes/users.js";
 import { classesRouter } from "./routes/classes.js";
 import { tasksRouter } from "./routes/tasks.js";
 import { classesData, courseData, taskData, } from "./data.js";
+import { countRouter } from "./routes/count.js";
 
 const app = express();
 dotenv.config(); 
@@ -35,7 +36,7 @@ app.use("/courses",coursesRouter);
 app.use("/users",userRouter);
 app.use("/classes",classesRouter);
 app.use("/tasks",tasksRouter);
-
+app.use("/count",countRouter);
 
 
 
