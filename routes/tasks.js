@@ -45,9 +45,9 @@ router.put("/postTaskSolutions/:taskDetails",async function(req,res){
 })
 
 
-router.get("/userTasks/:userName",async function(req,res){
-    const {userName} = req.params;
-    const userDetails = await client.db("zenStudentDashboard").collection("users").find({userName : userName}).toArray();
+router.get("/userTasks/:userId",async function(req,res){
+    const {userId} = req.params;
+    const userDetails = await client.db("zenStudentDashboard").collection("users").find({_id : ObjectId(userId)}).toArray();
     const userTasks = userDetails[0].tasksCompleted;
     res.send(userTasks);
 })
