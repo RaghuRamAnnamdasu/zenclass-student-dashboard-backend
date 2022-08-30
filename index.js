@@ -11,12 +11,12 @@ import { countRouter } from "./routes/count.js";
 
 const app = express();
 dotenv.config(); 
-app.use(cors());
-// app.use(
-//         cors({
-//           origin: "*",
-//         })
-//       );
+// app.use(cors());
+app.use(
+        cors({
+          origin: "*",
+        })
+      );
 // app.use((req, res, next) => {
 //         res.setHeader("Access-Control-Allow-Origin", "*");
 //         res.header(
