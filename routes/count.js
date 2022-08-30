@@ -6,7 +6,7 @@ import { auth } from "../middleware/auth.js";
 const router = express.Router();
 
 
-router.get("/getAllCount", auth, async (req,res)=>{
+router.get("/getAllCount", async (req,res)=>{
 
     try{
     const coursesData = await client.db("zenStudentDashboard").collection("courses").find().toArray();

@@ -6,7 +6,7 @@ import { auth } from "../middleware/auth.js";
 const router = express.Router();
 
 //Route for getting all the courses
-router.get("/getAllCourses",auth,async function(req,res){
+router.get("/getAllCourses",async function(req,res){
     const coursesData = await client.db("zenStudentDashboard").collection("courses").find().toArray();
     res.send(coursesData);
 })
@@ -22,7 +22,7 @@ router.get("/:id",async function(req,res){
 
 //Route for updating completed course in user Details
 
-router.put("/updateStatus/:courseId",auth,async function(req,res){
+router.put("/updateStatus/:courseId",async function(req,res){
 
     const {userName, courseName, percentageCompleted, isCourseFinished} = req.body;
     const {courseId} = req.params;
@@ -55,7 +55,7 @@ router.put("/updateStatus/:courseId",auth,async function(req,res){
 
 // Route for getting course status when entered in to course page
 
-router.get("/:userId/getCourseStatus/:courseId", auth, async function(req,res){
+router.get("/:userId/getCourseStatus/:courseId", async function(req,res){
 
     const {userId,courseId} = req.params;
     console.log(userId,courseId);
@@ -92,7 +92,7 @@ router.get("/:userId/getCourseStatus/:courseId", auth, async function(req,res){
 
 //Route for getting user all course status in Dashboard page
 
-router.get("/userCourses/:userId", auth, async function(req,res){
+router.get("/userCourses/:userId", async function(req,res){
     const {userId} = req.params;
     const coursesInfo = await client.db("zenStudentDashboard").collection("courses").find().toArray();
     const coursesList = coursesInfo.map((value)=>value.course ? value.course : "");
