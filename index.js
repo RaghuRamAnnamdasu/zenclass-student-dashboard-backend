@@ -15,6 +15,7 @@ dotenv.config();
 app.use(
         cors({
           origin: "*",
+          credentials: true
         })
       );
 // app.use((req, res, next) => {
