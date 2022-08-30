@@ -1,11 +1,12 @@
 import express from "express";
 import { client } from "../index.js";
 import {ObjectId} from "mongodb";
+import { auth } from "../middleware/auth.js";
 
 const router = express.Router();
 
 
-router.get("/getAllCount",async (req,res)=>{
+router.get("/getAllCount", auth, async (req,res)=>{
 
     try{
     const coursesData = await client.db("zenStudentDashboard").collection("courses").find().toArray();
