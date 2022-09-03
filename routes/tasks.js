@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 router.get("/getAllTasks", async function(req,res){
-    const coursesData = await client.db("zenStudentDashboard").collection("tasks").find().toArray();
+    const coursesData = await client.db("zenStudentDashboard").collection("tasks").find().sort({_id : 1}).toArray();
     res.send(coursesData);
 })
 
