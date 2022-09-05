@@ -128,7 +128,7 @@ router.post('/signup', async function (req, res) {
     var mailOptions = {
         from: "coderatwork@outlook.com",
         to: email,
-        subject: "Reset Password - Stack Over Flow-Clone",
+        subject: "Reset Password - Learn Infinity (Zen Student Portal)",
         text: "Hi User",
         // html: "<div><h4>Hi User,<h4></br><p>please click the link below for password reset</p></br><a href={link}/> </div>"
         html: `please click the link to reset your password - ${link}`
